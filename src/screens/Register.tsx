@@ -95,8 +95,6 @@ const Register = ({navigation}: any) => {
       Address: address,
     };
 
-    console.log(body);
-
     if (
       _.values(body).some(x => {
         if (x === '' || x === undefined) {
