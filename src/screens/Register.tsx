@@ -59,12 +59,20 @@ const Register = ({navigation}: any) => {
       Guests: guests?.value,
       Address: address,
     };
-    if (_.values(body).some(x => x === undefined)) {
-      if (disabled) {
+
+    if (
+      _.values(body).some(x => {
+        if (x === '' || x === undefined) {
+          return true;
+        }
+        return false;
+      })
+    ) {
+      if (!disabled) {
         setDisabled(true);
       }
     } else {
-      if (!disabled) {
+      if (disabled) {
         setDisabled(false);
       }
     }
@@ -89,7 +97,14 @@ const Register = ({navigation}: any) => {
 
     console.log(body);
 
-    if (_.values(body).some(x => x === undefined)) {
+    if (
+      _.values(body).some(x => {
+        if (x === '' || x === undefined) {
+          return true;
+        }
+        return false;
+      })
+    ) {
       Alert.alert('Error', 'All items should be Complete!!', [
         {
           text: 'OK',
