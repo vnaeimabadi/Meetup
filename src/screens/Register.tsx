@@ -235,7 +235,11 @@ const Register = ({navigation}: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <CustomMenuButton navigation={navigation} title="Register" />
+      <CustomMenuButton
+        navigation={navigation}
+        title="Register"
+        disabled={isLoading}
+      />
 
       <View style={{width: '100%', paddingHorizontal: 20}}>
         <ScrollView showsVerticalScrollIndicator={false}>

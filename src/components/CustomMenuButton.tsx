@@ -5,7 +5,15 @@ import Icon from 'react-native-remix-icon';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {COLORS} from '../constants';
 
-const CustomMenuButton = ({navigation, title}: any) => {
+const CustomMenuButton = ({
+  navigation,
+  title,
+  disabled = false,
+}: {
+  navigation: any;
+  title: string;
+  disabled?: boolean;
+}) => {
   const {top, left} = useSafeAreaInsets();
   return (
     <View
@@ -18,10 +26,12 @@ const CustomMenuButton = ({navigation, title}: any) => {
         flexDirection: 'row',
       }}>
       <TouchableOpacity
+        disabled={disabled}
         activeOpacity={0.8}
         style={{
           width: 46,
           height: 46,
+          opacity: disabled ? 0.3 : 1,
         }}
         onPress={() => {
           navigation.openDrawer();
