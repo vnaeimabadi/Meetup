@@ -16,6 +16,7 @@ interface Props {
   onSelect: (item: {label: string; value: any}) => void;
   initial: any;
   containerStyle?: any;
+  testID: string;
 }
 
 const Dropdown: FC<Props> = ({
@@ -24,6 +25,7 @@ const Dropdown: FC<Props> = ({
   onSelect,
   initial,
   containerStyle,
+  testID,
 }) => {
   const DropdownButton = useRef<any>();
   const [visible, setVisible] = useState(false);
@@ -57,7 +59,11 @@ const Dropdown: FC<Props> = ({
 
   const renderDropdown = (): ReactElement<any, any> => {
     return (
-      <Modal visible={visible} transparent animationType="none">
+      <Modal
+        testID={`${testID}-modal`}
+        visible={visible}
+        transparent
+        animationType="none">
         <TouchableOpacity
           style={[styles.overlay, {...containerStyle}]}
           onPress={() => setVisible(false)}>
@@ -81,6 +87,7 @@ const Dropdown: FC<Props> = ({
 
   return (
     <TouchableOpacity
+      testID={testID}
       ref={DropdownButton}
       style={styles.button}
       onPress={toggleDropdown}>

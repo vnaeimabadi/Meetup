@@ -262,6 +262,7 @@ const Register = ({navigation}: any) => {
               Guests
             </Text>
             <Dropdown
+              testID="guests-dropdown"
               label="Select Item"
               data={GUEST}
               onSelect={setGuests}
@@ -269,6 +270,7 @@ const Register = ({navigation}: any) => {
             />
           </View>
           <View
+            testID="age-regsiter"
             style={{
               marginTop: 20,
               backgroundColor: COLORS.WHITE,
@@ -285,11 +287,13 @@ const Register = ({navigation}: any) => {
               <Text>years old</Text>
             </View>
             <FlatList
+              testID={'age-flatlist'}
               data={ages}
               horizontal
               showsHorizontalScrollIndicator={false}
               renderItem={({index}) => (
                 <TouchableOpacity
+                  testID={`age-row-${index + 13}`}
                   onPress={() => setSelectedAge(index + 13)}
                   style={{marginRight: 5}}>
                   <View
@@ -311,7 +315,7 @@ const Register = ({navigation}: any) => {
               )}
             />
           </View>
-          <View style={{width: '100%', marginTop: 10}}>
+          <View testID="dob-regsiter" style={{width: '100%', marginTop: 10}}>
             <Text
               style={{
                 marginBottom: 8,
@@ -349,6 +353,7 @@ const Register = ({navigation}: any) => {
               Profession
             </Text>
             <Dropdown
+              testID="profession-dropdown"
               label="Select Item"
               data={PROFESSION}
               onSelect={setProfession}
@@ -365,6 +370,7 @@ const Register = ({navigation}: any) => {
               Locality
             </Text>
             <Dropdown
+              testID="locality-dropdown"
               label="Select Item"
               data={EMIRATE_CITIES}
               onSelect={setLocality}

@@ -7,3 +7,4 @@ export const getButtonDisabled = r.path([
   'accessibilityState',
   'disabled',
 ]);
+export const getModalVisibled = r.path(['props', 'visible']);
